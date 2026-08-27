@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎂</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 650px;
+      text-align: center;
+      padding: 45px 25px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      animation: appear 1.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cake {
+      font-size: 75px;
+      animation: bounce 2s infinite;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 8vw, 4.5rem);
+      margin-bottom: 10px;
+      text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .name {
+      color: #fff5a5;
+      text-shadow: 0 0 15px rgba(255, 245, 165, 0.8);
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      margin: 15px auto;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .message {
+      font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+      line-height: 1.8;
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .heart {
+      display: inline-block;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 50px;
+      background: white;
+      color: #ff4f81;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* Floating hearts */
+    .floating-heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 25px;
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(0.7) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.25);
+      }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 35px 18px;
+      }
+
+      .cake {
+        font-size: 60px;
+      }
+
+      .message {
+        padding: 16px;
+      }
+
+      button {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="cake">🎂</div>
+
+    <h1>
+      Happy Birthday<br>
+      <span class="name">Ritz ❤️</span>
+    </h1>
+
+    <p class="subtitle">
+      Today is all about celebrating the beautiful person you are. ✨
+    </p>
+
+    <div class="message">
+      Wishing you a birthday filled with happiness, love, laughter,
+      beautiful memories and everything your heart wishes for.
+      <br><br>
+      May your smile always stay this beautiful and may every new year
+      of your life bring you closer to your dreams.
+      <br><br>
+      Keep shining, keep smiling and always stay the amazing person you are.
+      <span class="heart">❤️</span>
+      <br><br>
+      <strong>Happy Birthday, Ritz! 🎉🎂✨</strong>
+    </div>
+
+    <button onclick="celebrate()">
+      🎁 Click for a Surprise
+    </button>
+
+    <div class="footer">
+      Made with ❤️ just for you
+    </div>
+
+  </div>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <script>
+
+    // Confetti when page loads
+    window.onload = function () {
+      setTimeout(() => {
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.6 }
+        });
+      }, 800);
+    };
+
+    // Surprise button
+    function celebrate() {
+
+      // Big confetti burst
+      confetti({
+        particleCount: 250,
+        spread: 160,
+        startVelocity: 45,
+        origin: { y: 0.6 }
+      });
+
+      // Multiple bursts
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 100,
+          origin: { x: 0, y: 0.7 }
+        });
+      }, 300);
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 100,
+          origin: { x: 1, y: 0.7 }
+        });
+      }, 600);
+
+      // Change button text
+      document.querySelector("button").innerHTML =
+        "💖 Best Birthday Ever! 🎉";
+    }
+
+    // Create floating hearts
+    function createHeart() {
+
+      const heart = document.createElement("div");
+
+      heart.classList.add("floating-heart");
+
+      const hearts = ["❤️", "💖", "💕", "💗", "💓", "✨"];
+
+      heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+      heart.style.fontSize =
+        (18 + Math.random() * 20) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 500);
+
+  </script>
+
+</body>
+</html>
